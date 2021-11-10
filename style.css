@@ -1,0 +1,264 @@
+*,
+::before,
+::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Inter;
+    background-color: #1d2029;
+}
+
+#upperLayer{
+    width:100%;
+    background-color: #20222f;
+    height: 30vh;
+    border-bottom-left-radius:2rem;
+    border-bottom-right-radius: 2rem;
+}
+
+#header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+
+#leftContent h1{
+  color:white;
+}
+
+#leftContent p{
+  color:#9198b2;
+}
+
+#flex_switcher{
+  display: flex;
+  gap:1rem;
+  align-items: center;
+}
+
+#flex_switcher span{
+  color: #9198b2;
+}
+
+
+
+.media{
+  position: absolute;
+    top:9rem;
+    left: 14rem;
+    width: 70%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    gap:2rem;
+    margin: 0 auto;
+}
+
+.activity{
+    position: absolute;
+    top:30rem;
+    left: 14rem;
+    width: 70%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+    gap:2rem;
+    margin: 0 auto;
+}
+
+#overview{
+  width: 85%;
+  position: absolute;
+  color:white;
+  top:25rem;
+  left:14rem;
+}
+
+.activity_tile{
+  background-color: #252b43;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.activity_link{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.activity_link{
+  color: #949dc6;
+}
+
+.activity_amount{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.activity_amount p{
+  color:white;
+  font-size: 2rem;
+}
+
+
+
+.media_tile{
+    border-bottom-left-radius:0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    background-color: #252b43;
+    cursor: pointer;
+}
+
+.header_tile{
+
+  height: 0.2rem;
+  border-top-left-radius: 0.7rem;
+  border-top-right-radius: 0.7rem;
+}
+
+.followers_num{
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 400;
+
+}
+
+.type{
+    font-weight: 400;
+    font-size:0.8rem ;
+    color:#5c6586;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+}
+
+.media_nik{
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.media_nik div{
+    color:#5c6586
+}
+
+.exchange{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+
+
+
+
+
+.switch-container {
+    width: 3em;
+    height: 1.5em;
+    border-radius: 10em ;
+    box-shadow: 0 0 2px 2px rgba(0,0,0,0.2);
+    position: relative;
+  }
+
+  label {
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 10em;
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 0.1em;
+    box-shadow: 0 0 5px 5px rgba(0,0,0,0.2);
+    z-index: 99;
+    cursor: pointer;
+  }
+
+  #switch:checked ~ label {
+    transform: translatex(1.3em) rotatez(360deg);
+  }
+
+  #switch ~ label {
+    transition: all 1s cubic-bezier(0.34, 1.36, 0.2, 1);
+  }
+
+  #switch{
+    display: none;
+  }
+
+  .switch-color {
+    width: 3em;
+    height: 1.5em;
+    background: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+    border-radius: 10em;
+    z-index: -1;
+    transition: all 500ms cubic-bezier(0.34, 1.36, 0.2, 1);
+  }
+
+  #switch:checked ~ .switch-color {
+    background: linear-gradient(to left, hsl(146, 68%, 55%), hsl(210, 78%, 56%));
+  }
+
+
+
+
+@media only screen and (max-width : 800px){
+    #header{
+      flex-direction: column;
+      width: 90%;
+      align-items: flex-start
+    }
+
+    #leftContent{
+      width: 100%;
+      padding-bottom: 1rem;
+      border-bottom: 1px groove #9198b2 ;
+    }
+
+    #rightContent{
+      width:100%;
+      padding-top: 1rem;
+    }
+
+    #flex_switcher{
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    #leftContent h1{
+      font-size: 1.5rem;
+    }
+    
+    .media{
+        left:1.1rem;
+        top: 10rem;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
+        width: 90%;
+    }
+
+    #overview{
+      font-size: 1rem;
+      top: 63rem;
+      left:1.1rem;
+    }
+    .activity{
+        padding-bottom:1rem;
+        left:1.1rem;
+        top: 68rem;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
+        width: 90%;
+    }
+}
