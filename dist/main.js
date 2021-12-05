@@ -35,6 +35,9 @@ window.onload = function () {
                 document.querySelector('#leftContent h1').style.color = 'white';
                 document.querySelector('body').style.backgroundColor = '#1d2029';
                 document.querySelector('#overview').style.color = 'white';
+                [...document.querySelectorAll('.followers_num')].map(v => {
+                    return v.style.color = 'white';
+                });
                 [...document.querySelectorAll('.activity_tile')].map(v => {
                     return v.style.backgroundColor = '#252b43';
                 });
