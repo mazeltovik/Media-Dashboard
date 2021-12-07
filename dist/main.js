@@ -6,50 +6,71 @@ window.onload = function () {
         constructor(props) {
             super(props);
             this.handleClick = this.handleClick.bind(this);
+            this.handleSwitch = this.handleSwitch.bind(this);
+            this.darkMode = this.darkMode.bind(this);
+            this.lightMode = this.lightMode.bind(this);
         }
+        darkMode() {
+            document.getElementById('upperLayer').style.backgroundColor = '#f8f9fe';
+            document.querySelector('#leftContent h1').style.color = '#1f1f27';
+            document.querySelector('#leftContent p').style.color = '#67687a';
+            document.querySelector('body').style.backgroundColor = '#ffffff';
+            document.querySelector('#overview').style.color = '#6d6f84';
+            [...document.querySelectorAll('.followers_num')].map(v => {
+                return v.style.color = '#1a1c28';
+            });
+            [...document.querySelectorAll('.media_tile')].map(v => {
+                return v.style.backgroundColor = '#f0f3fa';
+            });
+            [...document.querySelectorAll('.activity_tile')].map(v => {
+                return v.style.backgroundColor = '#f0f3fa';
+            });
+            [...document.querySelectorAll('.activity_amount p')].map(v => {
+                return v.style.color = '#1c1f26';
+            });
+            [...document.querySelectorAll('.activity_link')].map(v => {
+                return v.style.color = '#67687a';
+            });
+        }
+        lightMode(){
+            document.getElementById('upperLayer').style.backgroundColor = '#20222f';
+            document.querySelector('#leftContent h1').style.color = 'white';
+            document.querySelector('body').style.backgroundColor = '#1d2029';
+            document.querySelector('#overview').style.color = 'white';
+            [...document.querySelectorAll('.followers_num')].map(v => {
+                return v.style.color = 'white';
+            });
+            [...document.querySelectorAll('.activity_tile')].map(v => {
+                return v.style.backgroundColor = '#252b43';
+            });
+            [...document.querySelectorAll('.media_tile')].map(v => {
+                return v.style.backgroundColor = '#252b43';
+            });
+            [...document.querySelectorAll('.activity_amount p')].map(v => {
+                return v.style.color = 'white';
+            });
+            [...document.querySelectorAll('.activity_link')].map(v => {
+                return v.style.color = '#929bc2';
+            });
+        }
+        handleSwitch(e){
+            let elem = document.querySelector('#switch');
+            if(elem.checked){
+                elem.checked = false;
+                this.lightMode();
+            }
+            else {
+                elem.checked = true;
+                this.darkMode();
+            }
+        }
+
         handleClick(e) {
             if (e.target.checked) {
-                document.getElementById('upperLayer').style.backgroundColor = '#f8f9fe';
-                document.querySelector('#leftContent h1').style.color = '#1f1f27';
-                document.querySelector('#leftContent p').style.color = '#67687a';
-                document.querySelector('body').style.backgroundColor = '#ffffff';
-                document.querySelector('#overview').style.color = '#6d6f84';
-                [...document.querySelectorAll('.followers_num')].map(v => {
-                    return v.style.color = '#1a1c28';
-                });
-                [...document.querySelectorAll('.media_tile')].map(v => {
-                    return v.style.backgroundColor = '#f0f3fa';
-                });
-                [...document.querySelectorAll('.activity_tile')].map(v => {
-                    return v.style.backgroundColor = '#f0f3fa';
-                });
-                [...document.querySelectorAll('.activity_amount p')].map(v => {
-                    return v.style.color = '#1c1f26';
-                });
-                [...document.querySelectorAll('.activity_link')].map(v => {
-                    return v.style.color = '#67687a';
-                });
+                this.darkMode()
             }
             if (!e.target.checked) {
-                document.getElementById('upperLayer').style.backgroundColor = '#20222f';
-                document.querySelector('#leftContent h1').style.color = 'white';
-                document.querySelector('body').style.backgroundColor = '#1d2029';
-                document.querySelector('#overview').style.color = 'white';
-                [...document.querySelectorAll('.followers_num')].map(v => {
-                    return v.style.color = 'white';
-                });
-                [...document.querySelectorAll('.activity_tile')].map(v => {
-                    return v.style.backgroundColor = '#252b43';
-                });
-                [...document.querySelectorAll('.media_tile')].map(v => {
-                    return v.style.backgroundColor = '#252b43';
-                });
-                [...document.querySelectorAll('.activity_amount p')].map(v => {
-                    return v.style.color = 'white';
-                });
-                [...document.querySelectorAll('.activity_link')].map(v => {
-                    return v.style.color = '#929bc2';
-                });
+                this.lightMode()
             }
         }
         render() {
@@ -57,7 +78,7 @@ window.onload = function () {
                 'div',
                 { className: 'switch-container' },
                 React.createElement('input', { type: 'checkbox', id: 'switch', onClick: this.handleClick }),
-                React.createElement('div', { className: 'switch-color' }),
+                React.createElement('div', { className: 'switch-color', onClick: this.handleSwitch}),
                 React.createElement(
                     'label',
                     { htmlFor: 'switch' },

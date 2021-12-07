@@ -50,7 +50,7 @@ body{
 
 .media{
   position: absolute;
-  top:25%;
+  top:15rem;
   left:50%;
   transform:translate(-50%, -50%);
   width: 70%;
@@ -63,7 +63,7 @@ body{
 
 .activity{
     position: absolute;
-    top:40rem;
+    top:38rem;
     left:50%;
     transform:translate(-50%, -50%);
     width: 70%;
@@ -78,7 +78,7 @@ body{
 #overview{
   width: 85%;
   position: absolute;
-  top:50%;
+  top:27rem;
     left:57%;
     transform:translate(-50%, -50%);
   color:white;
@@ -218,7 +218,7 @@ body{
 
 
 
-@media only screen and (max-width : 800px){
+@media only screen and (max-width : 1000px){
     #header{
       flex-direction: column;
       width: 90%;
